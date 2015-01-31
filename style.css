@@ -1,0 +1,29 @@
+body {
+    background-color: #b0c4de;
+}
+
+#pic {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+}
+
+#first {
+	padding: 20px;
+	z-index: 2;
+}
+
+#second {
+	padding: 10px;
+	z-index: 2;
+}
+
+#third {
+	padding: 10px;
+	z-index: 2;
+}
+
+#hint {
+	display: none;
+}
