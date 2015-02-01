@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 
 	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.js"></script>
 
 	<link type="text/css" rel="stylesheet" href="style.css"/>
 
@@ -19,7 +19,7 @@
 <body>
 	<div class="container" id="first">
     	<div class="input-group">
-  			<span class="input-group-addon" id="thing">Guess which city this is</span>
+  			<span class="input-group-addon" id="thing">Guess</span>
   			<input type="text" class="form-control" placeholder="" aria-describedby="thing" id="guess">
 		</div>
   	</div>
@@ -27,13 +27,15 @@
   	<div class="container" id="second">
   		<div class="btn-group" role="group" aria-label="...">
 		  	<div class="btn-group" role="group">
-		    	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="		dropdown" aria-expanded="false">
+		    	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 			    	Maps
 			    	<span class="caret"></span>
 			   	</button>
 			    <ul class="dropdown-menu" role="menu">
-			      	<li><a href="#">U.S.A.</a></li>
-			      	<li><a href="#">World</a></li>
+			      	<li><a href="#" id="all">All</a></li>
+			      	<li><a href="#" id="us">U.S.</a></li>
+			      	<li><a href="#" id="world">World</a></li>
+			      	<li><a href="#" id="parks">Parks</a></li>
 			    </ul>
 		  	</div>
 
