@@ -19,14 +19,31 @@
 <body>
 	<div class="container" id="first">
     	<div class="input-group">
-  			<span class="input-group-addon" id="thing">Guess</span>
+  			<span class="input-group-addon" id="thing">Guess which city this is</span>
   			<input type="text" class="form-control" placeholder="" aria-describedby="thing" id="guess">
 		</div>
   	</div>
 
   	<div class="container" id="second">
-  		<button type="button" class="btn btn-info" id="getHint">Get Hint</button>
-  		<div class="alert alert-info" role="alert" id="hint">Click here if you need help later</div>	
+  		<div class="btn-group" role="group" aria-label="...">
+		  	<div class="btn-group" role="group">
+		    	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="		dropdown" aria-expanded="false">
+			    	Maps
+			    	<span class="caret"></span>
+			   	</button>
+			    <ul class="dropdown-menu" role="menu">
+			      	<li><a href="#">U.S.A.</a></li>
+			      	<li><a href="#">World</a></li>
+			    </ul>
+		  	</div>
+
+		  	<button type="button" class="btn btn-success" id="next">Next Map</button>
+		  	<button type="button" class="btn btn-info" id="getHint">Hint</button>
+		</div>
+  		
+  		<div class="alert alert-info" role="alert" id="hint">
+  			Click here if you need help later on.
+  		</div>	
   	</div>
 
   	<div class="container" id="third">

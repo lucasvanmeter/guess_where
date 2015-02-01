@@ -10,27 +10,27 @@ function city(name, source, answers, hint) {
 portland = new city(
 	"Portland, OR", 
 	'http://i166.photobucket.com/albums/u116/lucasvanmeter/portland_zpsojxitoei.jpg', 
-	["portland"], 
+	["portland", "portland, or"], 
 	"There are a lot of bridges.")
 seattle = new city(
 	"Seattle, WA", 
 	'http://i166.photobucket.com/albums/u116/lucasvanmeter/seattle_zps1nvuscxp.jpg', 
-	["seattle"], 
+	["seattle", "seattle, wa"], 
 	"You are there right now.")
 newhaven = new city(
 	"New Haven, CT", 
 	'http://i166.photobucket.com/albums/u116/lucasvanmeter/new_haven_zpsliqaxxls.jpg', 
-	["new haven"], 
+	["new haven", "new haven, ct"], 
 	"You won't get this one.")
 tijuana = new city(
 	"Tijuana, Mexico", 
 	'http://i166.photobucket.com/albums/u116/lucasvanmeter/tijuana_zpsgltcgq5a.jpg',
-	["tijuana"], 
+	["tijuana", "tijuana, mexico"], 
 	"There are a lot more cars going north than south.")
 giza = new city(
 	"Giza, Egypt", 
 	'http://i166.photobucket.com/albums/u116/lucasvanmeter/giza_zpsz4k6vxhu.jpg', 
-	["giza"], 
+	["giza", "giza, egypt"], 
 	"What are those strange buildings?")
 boston = new city(
 	"Boston, MA", 
@@ -44,7 +44,8 @@ santiago = new city(
 	"You really won't get this one.")
 
 
-var cityList = [portland, seattle, newhaven, tijuana, giza, boston, santiago]
+var usaList = [portland, seattle, newhaven, tijuana, boston]
+var worldList = [giza, santiago]
 
 function game(cities) {
 	var self = this
@@ -70,35 +71,29 @@ function game(cities) {
 		self.updateHint(self.cities[self.cityTracker].hint)
 	}
 
-	this.check = function(obj, list) {
+	this.check = function(guess, list) {
 	    var i;
+	    var obj = guess.toLowerCase()
 	    for (i = 0; i < list.length; i++) {
 	        if (list[i] === obj) {
 	            return true;
 	        }
 	    }
-
     	return false;
 	}
-	// this.check = function(text) {
-	// 	var answer = text.toLowerCase()
-	// 	if (answer in self.cities[self.cityTracker].answers) {
-	// 		return true
-	// 	} else {
-	// 		return false
-	// 	}
-	// }
 
+	//I would like to delay the update of the new city so they get a chance
+	// to look at it before moving on.
 	this.getInput = function(input) {
 		if (input == "") {
 			return
 		} else {
 			if (self.check(input, self.cities[self.cityTracker].answers) == true) {
 				self.correct("You are correct! The place was "+self.cities[self.cityTracker].name+".")
+				self.score++
 			} else {
-				self.incorrect("Not quite right. The corect answer was "+self.cities[self.cityTracker].name+".")
+				self.incorrect("Not quite right. The correct answer was "+self.cities[self.cityTracker].name+".")
 			}
-			self.nextCity()
 		}
 		
 	}
@@ -137,7 +132,7 @@ function game(cities) {
 
 //The buttons in the game
 
-game = new game(cityList)
+game = new game(usaList)
 
 $(document).ready(function() {
 
@@ -145,6 +140,10 @@ $(document).ready(function() {
 
 	$("#getHint").click(function() {
 		game.getHint()
+	})
+
+	$("#next").click(function() {
+		game.nextCity()
 	})
 
 	$("#guess").keyup(function(e) {
