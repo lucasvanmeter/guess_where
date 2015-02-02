@@ -1,70 +1,18 @@
 //Game object will run everything.
 
-function game(lists) {
-	var self = this
-	this.lists = lists
-	this.cities = this.lists[0]
+function controller(dict) {
+	this.dict = dict
+	this.list = null
 	this.score = 0
-	this.cityTracker = self.cities.length
+	this.cityTracker = 0
+	this.hintTracker = 0
+	this.currentCity = null
+	var self = this
 
-	this.newGame = function(num) {
-		self.cities = self.lists[num]
-		self.cityTracker = self.cities.length
-		self.nextCity()
-	}
+	//We have a number of utility functions to control the display.
 
-	this.updatePic = function(pic) {
-		$('#pic').attr('src',pic)
-	}
-
-	this.updateHint = function(text) {
-		$("#hint").html(text)
-	}
-
-	this.nextCity = function() {
-		self.cityTracker++
-		if (self.cityTracker >= self.cities.length) {
-			self.cityTracker = 0
-		}
-		self.updatePic(self.cities[self.cityTracker].source)
-		$("#hint").hide()
-		self.updateHint(self.cities[self.cityTracker].hint)
-	}
-
-	this.check = function(guess, list) {
-	    var i;
-	    var obj = guess.toLowerCase()
-	    for (i = 0; i < list.length; i++) {
-	        if (list[i] === obj) {
-	            return true;
-	        }
-	    }
-    	return false;
-	}
-
-	//I would like to delay the update of the new city so they get a chance
-	// to look at it before moving on. Right now there is a button to get to next map.
-	this.getInput = function(input) {
-		if (input == "") {
-			return
-		} else {
-			if (self.check(input, self.cities[self.cityTracker].answers) == true) {
-				self.correct("You are correct! The place was "+self.cities[self.cityTracker].name+".")
-				self.score++
-			} else {
-				self.incorrect("Not quite right. The correct answer was "+self.cities[self.cityTracker].name+".")
-			}
-		}
-		
-	}
-
-	//hints
-
-	this.getHint = function() {
-		$("#hint").show()
-	}
-
-	//Alerts
+	//Alerts: Windows that pop up and then vanish after 4 seconds. The three
+	// flavours are correct, incorrect, and hint.
 
 	var alertNum = 0
 
@@ -81,25 +29,124 @@ function game(lists) {
 
 	this.correct = function(text) {
 		var i = self.addAlert(text, "success")
-		setTimeout(function(){self.removeAlert(i)}, 3000)
+		setTimeout(function(){self.removeAlert(i)}, 4000)
 	}
 
 	this.incorrect = function(text) {
 		var i = self.addAlert(text, "warning")
-		setTimeout(function(){self.removeAlert(i)}, 3000)
+		setTimeout(function(){self.removeAlert(i)}, 4000)
+	}
+
+	this.hint = function(text) {
+		var i = self.addAlert(text, "info")
+		setTimeout(function(){self.removeAlert(i)}, 4000)
+	}
+
+	//This method updates the picture.
+
+	this.updatePic = function(pic) {
+		$('#pic').attr('src',pic)
+	}
+
+	//New game will initialize a new setup.
+
+	this.newGame = function(mode) {
+		self.list = self.dict[mode]
+		self.cityTracker = 0
+		self.currentCity = self.list[0]
+		self.hintTracker = 0
+		self.score = 0
+		self.updatePic(self.currentCity.source)
+	}
+
+	//This is how we get to the next city.
+
+	this.updateCity = function() {
+		self.currentCity = self.list[self.cityTracker]
+		self.updatePic(self.currentCity.source)
+		self.hintTracker = 0
+		$("#getHint").html("Hint")
+		$("#getHint").attr("class","btn btn-info")
+	}
+
+	this.nextCity = function() {
+		self.cityTracker++
+		if (self.cityTracker >= self.list.length) {
+			self.cityTracker = 0
+		}
+		self.updateCity()
+	}
+
+	this.lastCity = function() {
+		self.cityTracker--
+		if (self.cityTracker < 0) {
+			self.cityTracker = self.list.length - 1
+		}
+		self.updateCity()
+	}
+
+	// This code will check to see if the words the player entered match
+	// any of the possible answers.
+
+	this.check = function(guess, list) {
+	    var i;
+	    var obj = guess.toLowerCase()
+	    for (i = 0; i < list.length; i++) {
+	        if (list[i] === obj) {
+	            return true;
+	        }
+	    }
+    	return false;
+	}
+
+	// This recives the input from the player and decides what to do.
+
+	this.getInput = function(input) {
+		if (input == "") {
+			return
+		} else {
+			if (self.check(input, self.currentCity.answers) == true) {
+				self.correct("You are correct! The place was "+self.currentCity.name+".")
+				setTimeout(self.nextCity(), 3000)
+				self.score++
+			} else {
+				self.getHint()	
+			} 
+		}
+	}
+
+	//hints
+	this.getHint = function() {
+		if (self.hintTracker < 1) {
+			self.hint(self.currentCity.hint[self.hintTracker])	
+			self.hintTracker++
+			if (self.hintTracker = 1) {
+				$("#getHint").html("Answer")
+				$("#getHint").attr("class","btn btn-warning")
+			}
+		} else {
+			self.incorrect("The place was "+self.currentCity.name+".")
+			setTimeout(self.nextCity(), 3000)
+		}
 	}
 }
 
 //The buttons in the game
 
-game = new game(games)
+
 
 $(document).ready(function() {
 
-	game.nextCity()
+	game = new controller(content)
+
+	game.newGame("us")
 
 	$("#getHint").click(function() {
 		game.getHint()
+	})
+
+	$("#last").click(function() {
+		game.lastCity()
 	})
 
 	$("#next").click(function() {
@@ -115,18 +162,22 @@ $(document).ready(function() {
 	})
 
 	$("#all").click(function() {
-		game.newGame(0)
+		game.newGame("all")
+		$("#mode").html("All <span class='caret'></span>")
 	})
 
 	$("#us").click(function() {
-		game.newGame(1)
+		game.newGame("us")
+		$("#mode").html("U.S. <span class='caret'></span>")
 	})
 
 	$("#world").click(function() {
-		game.newGame(2)
+		game.newGame("world")
+		$("#mode").html("World <span class='caret'></span>")
 	})
 
 	$("#parks").click(function() {
-		game.newGame(3)
+		game.newGame("parks")
+		$("#mode").html("Parks <span class='caret'></span>")
 	})
 })
