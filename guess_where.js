@@ -107,7 +107,7 @@ function controller(dict) {
 		} else {
 			if (self.check(input, self.currentCity.answers) == true) {
 				self.correct("You are correct! The place was "+self.currentCity.name+".")
-				setTimeout(self.nextCity(), 3000)
+				setTimeout(self.nextCity, 2000)
 				self.score++
 			} else {
 				self.getHint()	
@@ -126,7 +126,7 @@ function controller(dict) {
 			}
 		} else {
 			self.incorrect("The place was "+self.currentCity.name+".")
-			setTimeout(self.nextCity(), 3000)
+			setTimeout(self.nextCity, 4000)
 		}
 	}
 }
