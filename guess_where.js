@@ -56,6 +56,7 @@ function controller(dict) {
 		self.currentCity = self.list[0]
 		self.hintTracker = 0
 		self.score = 0
+		$("#score").html(""+self.score)
 		self.updatePic(self.currentCity.source)
 	}
 
@@ -107,8 +108,9 @@ function controller(dict) {
 		} else {
 			if (self.check(input, self.currentCity.answers) == true) {
 				self.correct("You are correct! The place was "+self.currentCity.name+".")
-				setTimeout(self.nextCity, 2000)
+				setTimeout(self.nextCity, 3000)
 				self.score++
+				$("#score").html(""+self.score)
 			} else {
 				self.getHint()	
 			} 
