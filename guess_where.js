@@ -57,6 +57,8 @@ function controller(dict) {
 		self.hintTracker = 0
 		self.score = 0
 		$("#score").html(""+self.score)
+		$(".circle-text").css("width",(25+1*self.score)+"px")
+		$(".circle-text").css("height",(25+1*self.score)+"px")
 		self.updatePic(self.currentCity.source)
 	}
 
@@ -108,9 +110,11 @@ function controller(dict) {
 		} else {
 			if (self.check(input, self.currentCity.answers) == true) {
 				self.correct("You are correct! The place was "+self.currentCity.name+".")
-				setTimeout(self.nextCity, 3000)
+				setTimeout(self.nextCity, 1000)
 				self.score++
 				$("#score").html(""+self.score)
+				$(".circle-text").css("width",(25+1*self.score)+"px")
+				$(".circle-text").css("height",(25+1*self.score)+"px")
 			} else {
 				self.getHint()	
 			} 
@@ -119,16 +123,16 @@ function controller(dict) {
 
 	//hints
 	this.getHint = function() {
-		if (self.hintTracker < 1) {
+		if (self.hintTracker < 2) {
 			self.hint(self.currentCity.hint[self.hintTracker])	
 			self.hintTracker++
-			if (self.hintTracker = 1) {
+			if (self.hintTracker == 2) {
 				$("#getHint").html("Answer")
 				$("#getHint").attr("class","btn btn-warning")
 			}
 		} else {
 			self.incorrect("The place was "+self.currentCity.name+".")
-			setTimeout(self.nextCity, 4000)
+			setTimeout(self.nextCity, 3000)
 		}
 	}
 }
