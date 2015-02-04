@@ -233,31 +233,11 @@ fingerlakes = new city(
 	["fingers", "finger lakes"], 
 	["It's in New York.", "It looks like someone scratched the land with their hand."])
 
-// Here we put the maps into various categories.
-var natureMode = {
-	name: "nature",
-	list: [lakesuperior, mtrainier, grandcanyon, sthelens, mtadams, craterlake, mtmckinley, mississippiriver, mthood, fingerlakes, oldfaithful]
-}
-var usMode = {
-	name: "us",
-	list: [newyork, seattle, chicago, sanfransisco, dc, portland, boston, losangels, newhaven, tijuana, lasvegas]
-}
-var worldMode = {
-	name: "world",
-	list: [giza, paris, vancouver, mexicocity, hongkong, buenosaires, versailles, tijuana, capeofgoodhope, santiago, seoul]
-}
-var parksMode = {
-	name: "parks", 
-	list: [discovery, goldengate, centralpark, ravenna, mttabor, seward, laurelhurst, presido, forestpark, volunteer]
-}
-
-
-// Here we compile all the modes into one dictionary for the game to accept as input.
-// This is a bit too hands on and I should make it automated but the buttons for each category are currently made by hand,
-// to make a new mode you have to add button in the html file and then make it work in the js file.
-var content = {
-	"nature" : natureMode,
-	"us" : usMode,
-	"world" : worldMode,
-	"parks" : parksMode
+//TO-DO: explain
+var modes = {
+	'U.S.': [newyork, seattle, chicago, sanfransisco, dc, portland, boston, losangels, newhaven, tijuana, lasvegas],
+	'World': [giza, paris, vancouver, mexicocity, hongkong, buenosaires, versailles, tijuana, capeofgoodhope, santiago, seoul],
+	'Parks': [discovery, goldengate, centralpark, ravenna, mttabor, seward, laurelhurst, presido, forestpark, volunteer],
+	'Nature': [lakesuperior, mtrainier, grandcanyon, sthelens, mtadams, craterlake, mtmckinley, mississippiriver, mthood, fingerlakes, oldfaithful],
+	'Uzbekistan': [chicago]
 }
