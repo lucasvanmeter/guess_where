@@ -179,6 +179,25 @@ $(document).ready(function() {
 		}
 	})
 
+	//Cheat Codes
+
+	var map = {68: false, 69: false, 86: false};
+	$(document).keydown(function(e) {
+	    if (e.keyCode in map) {
+	        map[e.keyCode] = true;
+	        if (map[68] && map[69] && map[86]) {
+	            game.score++
+				$("#score").html(""+game.score)
+				$(".circle-text").css("width",(25+2*game.score)+"px")
+				$(".circle-text").css("height",(25+2*game.score)+"px")
+	        }
+	    }
+	}).keyup(function(e) {
+	    if (e.keyCode in map) {
+	        map[e.keyCode] = false;
+	    }
+	});
+
 	$("#nature").click(function() {
 		game.newGame("nature")
 		$("#mode").html("Nature <span class='caret'></span>")

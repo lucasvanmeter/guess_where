@@ -226,7 +226,7 @@ fingerlakes = new city(
 //The lists need to be numbered to be called.
 var natureMode = {
 	name: "nature",
-	list: [lakesuperior, mtrainier, sthelens, mtadams, mtmckinley, mthood, grandcanyon, craterlake, fingerlakes, mississippiriver, oldfaithful]
+	list: [lakesuperior, mtrainier, grandcanyon, sthelens, mtadams, craterlake, mtmckinley, mississippiriver, mthood, fingerlakes, oldfaithful]
 }
 var usMode = {
 	name: "us",
