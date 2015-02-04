@@ -57,8 +57,8 @@ function controller(dict) {
 		self.hintTracker = 0
 		self.score = 0
 		$("#score").html(""+self.score)
-		$(".circle-text").css("width",(25+1*self.score)+"px")
-		$(".circle-text").css("height",(25+1*self.score)+"px")
+		$(".circle-text").css("width",(25+2*self.score)+"px")
+		$(".circle-text").css("height",(25+2*self.score)+"px")
 		self.updatePic(self.currentCity.source)
 	}
 
@@ -113,8 +113,8 @@ function controller(dict) {
 				setTimeout(self.nextCity, 1000)
 				self.score++
 				$("#score").html(""+self.score)
-				$(".circle-text").css("width",(25+1*self.score)+"px")
-				$(".circle-text").css("height",(25+1*self.score)+"px")
+				$(".circle-text").css("width",(25+2*self.score)+"px")
+				$(".circle-text").css("height",(25+2*self.score)+"px")
 			} else {
 				self.getHint()	
 			} 
@@ -167,9 +167,9 @@ $(document).ready(function() {
 		}
 	})
 
-	$("#all").click(function() {
-		game.newGame("all")
-		$("#mode").html("All <span class='caret'></span>")
+	$("#nature").click(function() {
+		game.newGame("nature")
+		$("#mode").html("Nature <span class='caret'></span>")
 	})
 
 	$("#us").click(function() {

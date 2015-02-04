@@ -122,20 +122,116 @@ buenosaires = new city(
 	'http://i166.photobucket.com/albums/u116/lucasvanmeter/buenosaires_zpse1blgpjz.jpg', 
 	["buenos aires"], 
 	["It's a capitol city in South America.", "It's in Argentina."])
+vancouver = new city(
+	"Vancouver, BC", 
+	'http://i166.photobucket.com/albums/u116/lucasvanmeter/vancouver_zpsixsehcqj.jpg', 
+	["vancouver", "vancouver, bc"], 
+	["It's in Canada.", "It's on the West coast."])
+mexicocity = new city(
+	"Mexico City, Mexico", 
+	'http://i166.photobucket.com/albums/u116/lucasvanmeter/mexicocity_zpsweksg6rz.jpg', 
+	["mexico city"], 
+	["It's in Central America", "It's named after the country it's in."])
+hongkong = new city(
+	"Hong Kong", 
+	'http://i166.photobucket.com/albums/u116/lucasvanmeter/hongkong_zpsuxibov6t.jpg', 
+	["hong kong"], 
+	["It's in Southeast Asia", "It used to be a colony of Britan."])
+capeofgoodhope = new city(
+	"Cape of Good Hope, South Africa", 
+	'http://i166.photobucket.com/albums/u116/lucasvanmeter/capeofgoodhope_zpsefkuwhcc.jpg', 
+	["cape of good hope"], 
+	["It's in Africa.", "It's the southernmost point in Africa."])
+dc = new city(
+	"D.C, Maryland", 
+	'http://i166.photobucket.com/albums/u116/lucasvanmeter/dc_zpsn6f3assp.jpg', 
+	["dc", "d.c."], 
+	["It's a capitol city.", "It's the capitol city."])
+newyork = new city(
+	"New York, NY", 
+	'http://i166.photobucket.com/albums/u116/lucasvanmeter/newyork_zpspdhnb77w.jpg', 
+	["new york"], 
+	["There are two states in this picture.", "It's the largest city in the United states."])
+losangles = new city(
+	"Los Angles, CA", 
+	'http://i166.photobucket.com/albums/u116/lucasvanmeter/losangles_zpsk65xmzzw.jpg', 
+	["los angles"], 
+	["It's on the West coast", "It's in California."])
+chicago = new city(
+	"Chicago, IL", 
+	'http://i166.photobucket.com/albums/u116/lucasvanmeter/chicago_zpsbobov4sy.jpg', 
+	["chicago"], 
+	["It's not on a coast.", "It's the windy city."])
+sthelens = new city(
+	"Mt. St. Helens, WA", 
+	'http://i166.photobucket.com/albums/u116/lucasvanmeter/sthelens_zpscbrczuak.jpg', 
+	["st. helens", "mt st helens", "helens", "mt. helens", "mt. st. helens", "st. helens"], 
+	["It's in the Cascades.", "It blew in 1980."])
+mtrainier = new city(
+	"Mt. Rainier, WA", 
+	'http://i166.photobucket.com/albums/u116/lucasvanmeter/mtrainer_zpsaqbeirzs.jpg', 
+	["rainier", "mt rainer", "mt. rainier"], 
+	["It's in the Cascades.", "It's the tallest mountain in the Cascades."])
+oldfaithful = new city(
+	"Old Faithful, Yellowstone National Park", 
+	'http://i166.photobucket.com/albums/u116/lucasvanmeter/oldfaithful_zpsyibzafmk.jpg', 
+	["old faithful"], 
+	["It's in a famous national park.", "It's in Yellowstone."])
+mthood = new city(
+	"Mt. Hood, OR", 
+	'http://i166.photobucket.com/albums/u116/lucasvanmeter/mthood_zpsubzzfaht.jpg', 
+	["buenos aires"], 
+	["It's in the Cascades.", "It's not in Washington."])
+mtadams = new city(
+	"Mt. Adams, WA", 
+	'http://i166.photobucket.com/albums/u116/lucasvanmeter/mtadams_zpsnkn0iyy6.jpg', 
+	["mt adams", "adams", "mt. adams", "mount adams"], 
+	["It's in the Cascades.", "It's 12,281 feet tall."])
+mississippiriver = new city(
+	"Mississippi River, Louisiana", 
+	'http://i166.photobucket.com/albums/u116/lucasvanmeter/mississippiriver_zpsrap4ety7.jpg', 
+	["mississippi", "mississippi river"], 
+	["It flows into the Gulf.", "It's the largest river in the United States."])
+mtmckinley = new city(
+	"Mt. McKinley, AK", 
+	'http://i166.photobucket.com/albums/u116/lucasvanmeter/mckinley_zpsrmcuobd7.jpg', 
+	["mckinly", "mt mckinly", "mt. mckinley", "mount mckinley"], 
+	["It's in Alaska.", "It's the tallest mountain in the United States."])
+craterlake = new city(
+	"Crater Lake, OR", 
+	'http://i166.photobucket.com/albums/u116/lucasvanmeter/craterlake_zpsg7ae9cqs.jpg', 
+	["crater lake"], 
+	["There are no rivers flowing into or out of this lake.", "It's in Oregon."])
+grandcanyon = new city(
+	"the Grand Canyon", 
+	'http://i166.photobucket.com/albums/u116/lucasvanmeter/grandcanyon_zpsuh8u34yt.jpg', 
+	["grand canyon", "the grand canyon"], 
+	["It's in Arizona.", "That is the Colarado river."])
+lakesuperior = new city(
+	"Lake Superior", 
+	'http://i166.photobucket.com/albums/u116/lucasvanmeter/lakesuperior_zpsoyykrnrb.jpg', 
+	["superior", "lake superior"], 
+	["There are two countries in this picture.", "This is the largest great lake."])
+columbiagorge = new city(
+	"the Columbia River Gorge", 
+	'http://i166.photobucket.com/albums/u116/lucasvanmeter/columbiagoerge_zpsga0ee15m.jpg', 
+	["columbia", "gorge", "columbia gorge", "columbia river gorge"], 
+	["There are two states in this picture.", "It's in the Cascades."])
+fingerlakes = new city(
+	"the Finger lakes, NY", 
+	'http://i166.photobucket.com/albums/u116/lucasvanmeter/fingerlakes_zpswn8wnaee.jpg', 
+	["fingers", "finger lakes"], 
+	["It's in New York.", "It looks like someone scratched the land with their hand."])
 
 //The lists need to be numbered to be called.
-var allList = [seattle, sanfransisco, portland, buenosaires, boston, giza, versailles, 
-				newhaven, tijuana, paris, santiago, lasvegas, seoul]
-var usList = [seattle, sanfransisco, portland, boston, newhaven, tijuana, lasvegas]
-var worldList = [giza, versailles, santiago, paris, buenosaires, tijuana, seoul]
+var natureList = [lakesuperior, mtrainier, sthelens, mtadams, mtmckinley, mthood, grandcanyon, craterlake, fingerlakes, mississippiriver, oldfaithful]
+var usList = [newyork, seattle, chicago, sanfransisco, dc, portland, boston, losangles, newhaven, tijuana, lasvegas]
+var worldList = [giza, paris, vancouver, mexicocity, hongkong, buenosaires, versailles, tijuana, capeofgoodhope, santiago, seoul]
 var parkList = [discovery, goldengate, centralpark, ravenna, mttabor, seward, laurelhurst, 
 				presido, forestpark, volunteer]
 
-//This is the argument for the game object.
-var games = [allList, usList, worldList, parkList]
-
 var content = {
-	"all" : allList,
+	"nature" : natureList,
 	"us" : usList,
 	"world" : worldList,
 	"parks" : parkList
