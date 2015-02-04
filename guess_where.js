@@ -1,7 +1,8 @@
 //Game object will run everything.
 
-function controller(dict) {
-	this.dict = dict
+function controller(maps) {
+	this.maps = maps
+	this.mode = null
 	this.list = null
 	this.score = 0
 	this.cityTracker = 0
@@ -51,7 +52,8 @@ function controller(dict) {
 	//New game will initialize a new setup.
 
 	this.newGame = function(mode) {
-		self.list = self.dict[mode]
+		self.mode = self.maps[mode]
+		self.list = self.mode["list"]
 		self.cityTracker = 0
 		self.currentCity = self.list[0]
 		self.hintTracker = 0
@@ -155,12 +157,22 @@ $(document).ready(function() {
 		game.lastCity()
 	})
 
+	$(document).keyup(function(e) {
+        if ( e.keyCode == 37 ) // w
+            game.lastCity()
+    })
+
 	$("#next").click(function() {
 		game.nextCity()
 	})
 
+	$(document).keyup(function(e) {
+        if ( e.keyCode == 39 ) // w
+            game.nextCity()
+    })
+
 	$("#guess").keyup(function(e) {
-		if(e.which == 13) {
+		if(e.which == 13) {		//enter
 			var input = $("#guess").val()
 			game.getInput(input)
 			$("#guess").val("")

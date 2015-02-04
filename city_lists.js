@@ -63,7 +63,7 @@ seward = new city(
 	["seward","seward park"], 
 	["It's in Seattle.", "It is in South Seattle."])
 ravenna = new city(
-	"Revenna park, Seattle", 
+	"Ravenna park, Seattle", 
 	'http://i166.photobucket.com/albums/u116/lucasvanmeter/revenna_zpsii8dqjwq.jpg', 
 	["ravenna","ravenna park"], 
 	["It's in Seattle.", "It is in Northeast Seattle."])
@@ -73,7 +73,7 @@ seoul = new city(
 	["seoul","seoul, korea"], 
 	["It's in Southeast Asia.", "It's in Korea."])
 lasvegas = new city(
-	"Las Vagas, NV", 
+	"Las Vegas, NV", 
 	'http://i166.photobucket.com/albums/u116/lucasvanmeter/lasvagas_zpswl0mym9z.jpg', 
 	["las vegas","las vegas, nv", "vegas"], 
 	["It's in the Southwest.", "It's in Nevada."])
@@ -131,12 +131,12 @@ mexicocity = new city(
 	"Mexico City, Mexico", 
 	'http://i166.photobucket.com/albums/u116/lucasvanmeter/mexicocity_zpsweksg6rz.jpg', 
 	["mexico city"], 
-	["It's in Central America", "It's named after the country it's in."])
+	["It's in North America", "It's named after the country it's in."])
 hongkong = new city(
 	"Hong Kong", 
 	'http://i166.photobucket.com/albums/u116/lucasvanmeter/hongkong_zpsuxibov6t.jpg', 
 	["hong kong"], 
-	["It's in Southeast Asia", "It used to be a colony of Britan."])
+	["It's in Southeast Asia", "It used to be a colony of Britian."])
 capeofgoodhope = new city(
 	"Cape of Good Hope, South Africa", 
 	'http://i166.photobucket.com/albums/u116/lucasvanmeter/capeofgoodhope_zpsefkuwhcc.jpg', 
@@ -152,16 +152,16 @@ newyork = new city(
 	'http://i166.photobucket.com/albums/u116/lucasvanmeter/newyork_zpspdhnb77w.jpg', 
 	["new york"], 
 	["There are two states in this picture.", "It's the largest city in the United states."])
-losangles = new city(
-	"Los Angles, CA", 
+losangels = new city(
+	"Los Angels, CA", 
 	'http://i166.photobucket.com/albums/u116/lucasvanmeter/losangles_zpsk65xmzzw.jpg', 
-	["los angles"], 
+	["los angels"], 
 	["It's on the West coast", "It's in California."])
 chicago = new city(
 	"Chicago, IL", 
 	'http://i166.photobucket.com/albums/u116/lucasvanmeter/chicago_zpsbobov4sy.jpg', 
 	["chicago"], 
-	["It's not on a coast.", "It's the windy city."])
+	["It's not on a coast.", "It's in the Midwest."])
 sthelens = new city(
 	"Mt. St. Helens, WA", 
 	'http://i166.photobucket.com/albums/u116/lucasvanmeter/sthelens_zpscbrczuak.jpg', 
@@ -206,7 +206,7 @@ grandcanyon = new city(
 	"the Grand Canyon", 
 	'http://i166.photobucket.com/albums/u116/lucasvanmeter/grandcanyon_zpsuh8u34yt.jpg', 
 	["grand canyon", "the grand canyon"], 
-	["It's in Arizona.", "That is the Colarado river."])
+	["It's in Arizona.", "You can see the Colarado river winding through it."])
 lakesuperior = new city(
 	"Lake Superior", 
 	'http://i166.photobucket.com/albums/u116/lucasvanmeter/lakesuperior_zpsoyykrnrb.jpg', 
@@ -224,15 +224,26 @@ fingerlakes = new city(
 	["It's in New York.", "It looks like someone scratched the land with their hand."])
 
 //The lists need to be numbered to be called.
-var natureList = [lakesuperior, mtrainier, sthelens, mtadams, mtmckinley, mthood, grandcanyon, craterlake, fingerlakes, mississippiriver, oldfaithful]
-var usList = [newyork, seattle, chicago, sanfransisco, dc, portland, boston, losangles, newhaven, tijuana, lasvegas]
-var worldList = [giza, paris, vancouver, mexicocity, hongkong, buenosaires, versailles, tijuana, capeofgoodhope, santiago, seoul]
-var parkList = [discovery, goldengate, centralpark, ravenna, mttabor, seward, laurelhurst, 
-				presido, forestpark, volunteer]
+var natureMode = {
+	name: "nature",
+	list: [lakesuperior, mtrainier, sthelens, mtadams, mtmckinley, mthood, grandcanyon, craterlake, fingerlakes, mississippiriver, oldfaithful]
+}
+var usMode = {
+	name: "us",
+	list: [newyork, seattle, chicago, sanfransisco, dc, portland, boston, losangels, newhaven, tijuana, lasvegas]
+}
+var worldMode = {
+	name: "world",
+	list: [giza, paris, vancouver, mexicocity, hongkong, buenosaires, versailles, tijuana, capeofgoodhope, santiago, seoul]
+}
+var parksMode = {
+	name: "parks", 
+	list: [discovery, goldengate, centralpark, ravenna, mttabor, seward, laurelhurst, presido, forestpark, volunteer]
+}
 
 var content = {
-	"nature" : natureList,
-	"us" : usList,
-	"world" : worldList,
-	"parks" : parkList
+	"nature" : natureMode,
+	"us" : usMode,
+	"world" : worldMode,
+	"parks" : parksMode
 }
