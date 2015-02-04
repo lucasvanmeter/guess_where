@@ -170,7 +170,7 @@ sthelens = new city(
 mtrainier = new city(
 	"Mt. Rainier, WA", 
 	'http://i166.photobucket.com/albums/u116/lucasvanmeter/mtrainer_zpsaqbeirzs.jpg', 
-	["rainier", "mt rainer", "mt. rainier"], 
+	["rainier", "mt rainer", "mt. rainier", "mount rainier"], 
 	["It's in the Cascades.", "It's the tallest mountain in the Cascades."])
 oldfaithful = new city(
 	"Old Faithful, Yellowstone National Park", 
@@ -180,7 +180,7 @@ oldfaithful = new city(
 mthood = new city(
 	"Mt. Hood, OR", 
 	'http://i166.photobucket.com/albums/u116/lucasvanmeter/mthood_zpsubzzfaht.jpg', 
-	["buenos aires"], 
+	["hood", "mt hood", "mt. hood", "mount hood"], 
 	["It's in the Cascades.", "It's not in Washington."])
 mtadams = new city(
 	"Mt. Adams, WA", 
@@ -195,7 +195,7 @@ mississippiriver = new city(
 mtmckinley = new city(
 	"Mt. McKinley, AK", 
 	'http://i166.photobucket.com/albums/u116/lucasvanmeter/mckinley_zpsrmcuobd7.jpg', 
-	["mckinly", "mt mckinly", "mt. mckinley", "mount mckinley"], 
+	["mckinley", "mt mckinley", "mt. mckinley", "mount mckinley"], 
 	["It's in Alaska.", "It's the tallest mountain in the United States."])
 craterlake = new city(
 	"Crater Lake, OR", 
