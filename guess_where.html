@@ -20,6 +20,7 @@
 
 
 <body>
+	<!-- This first div contains the guessing box. -->
 	<div class="container" id="first">
     	<div class="input-group">
   			<span class="input-group-addon" id="thing">Guess</span>
@@ -27,6 +28,7 @@
 		</div>
   	</div>
 
+  	<!-- This div contains all the buttons and the score. -->
   	<div class="container" id="second">
   		<div class="btn-group" role="group" aria-label="...">
 		  	<div class="btn-group" role="group">
@@ -34,6 +36,8 @@
 			    	Maps
 			    	<span class="caret"></span>
 			   	</button>
+
+			   	<!-- If you add a new mode in the city list file you need to add a button for it here.-->
 			    <ul class="dropdown-menu" role="menu">
 			      	<li><a href="#" id="nature">Nature</a></li>
 			      	<li><a href="#" id="us">U.S.</a></li>
@@ -50,10 +54,12 @@
 		<div class="circle-text"><div id="score">0</div></div>
   	</div>
 
+  	<!-- This div contains the messages that pop up during the game. -->
   	<div class="container" id="third">
   		<div id="message"></div>
   	</div>
 
+  	<!-- Lastly the picture which has z-index -1 and always fills the entire screen. -->
   	<div class="container">
   		<img id="pic" src="">
   	</div>

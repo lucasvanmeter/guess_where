@@ -1,4 +1,14 @@
-// Making the list of pictures to guess
+// Making the list of pictures to guess. To add a new entry you need the following
+// name: How the name will appear to the player when they get it right or wrong.
+// source: This is a link to the actual photo. I currently am using photobucket.com to store and link photos.
+// answer: This is a list not a string and it contians all the strings acceptable as asnwers. All strings should be in lowercase.
+// hint: This is a list and it contians the hints the user will see. Currently all maps have two hints but any number works.
+
+//
+// The cities section needs work so feel free to change hints, add answers, get better pictures and fix spelling errors. Just be careful
+// if you change the name in white becasue then you will need to change it later when it appears in a list as well.
+//
+
 
 function city(name, source, answers, hint) {
 	this.name = name
@@ -223,7 +233,7 @@ fingerlakes = new city(
 	["fingers", "finger lakes"], 
 	["It's in New York.", "It looks like someone scratched the land with their hand."])
 
-//The lists need to be numbered to be called.
+// Here we put the maps into various categories.
 var natureMode = {
 	name: "nature",
 	list: [lakesuperior, mtrainier, grandcanyon, sthelens, mtadams, craterlake, mtmckinley, mississippiriver, mthood, fingerlakes, oldfaithful]
@@ -241,6 +251,10 @@ var parksMode = {
 	list: [discovery, goldengate, centralpark, ravenna, mttabor, seward, laurelhurst, presido, forestpark, volunteer]
 }
 
+
+// Here we compile all the modes into one dictionary for the game to accept as input.
+// This is a bit too hands on and I should make it automated but the buttons for each category are currently made by hand,
+// to make a new mode you have to add button in the html file and then make it work in the js file.
 var content = {
 	"nature" : natureMode,
 	"us" : usMode,

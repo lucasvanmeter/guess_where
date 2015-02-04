@@ -1,4 +1,4 @@
-//Game object will run everything.
+//The controller object will run everything.
 
 function controller(maps) {
 	this.maps = maps
@@ -12,7 +12,7 @@ function controller(maps) {
 
 	//We have a number of utility functions to control the display.
 
-	//Alerts: Windows that pop up and then vanish after 4 seconds. The three
+	//Alerts: Windows that pop up and then vanish after some seconds. The three
 	// flavours are correct, incorrect, and hint.
 
 	var alertNum = 0
@@ -49,6 +49,13 @@ function controller(maps) {
 		$('#pic').attr('src',pic)
 	}
 
+	// updates the score on screen.
+	this.updateScore = function() {
+		$("#score").html(""+self.score)
+		$(".circle-text").css("width",(25+2*self.score)+"px")
+		$(".circle-text").css("height",(25+2*self.score)+"px")
+	}
+
 	//New game will initialize a new setup.
 
 	this.newGame = function(mode) {
@@ -58,9 +65,7 @@ function controller(maps) {
 		self.currentCity = self.list[0]
 		self.hintTracker = 0
 		self.score = 0
-		$("#score").html(""+self.score)
-		$(".circle-text").css("width",(25+2*self.score)+"px")
-		$(".circle-text").css("height",(25+2*self.score)+"px")
+		self.updateScore()
 		self.updatePic(self.currentCity.source)
 	}
 
@@ -114,9 +119,7 @@ function controller(maps) {
 				self.correct("You are correct! The place was "+self.currentCity.name+".")
 				setTimeout(self.nextCity, 1000)
 				self.score++
-				$("#score").html(""+self.score)
-				$(".circle-text").css("width",(25+2*self.score)+"px")
-				$(".circle-text").css("height",(25+2*self.score)+"px")
+				self.updateScore()
 			} else {
 				self.getHint()	
 			} 
@@ -125,10 +128,10 @@ function controller(maps) {
 
 	//hints
 	this.getHint = function() {
-		if (self.hintTracker < 2) {
+		if (self.hintTracker < self.currentCity.hint.length) {
 			self.hint(self.currentCity.hint[self.hintTracker])	
 			self.hintTracker++
-			if (self.hintTracker == 2) {
+			if (self.hintTracker == self.currentCity.hint.length) {
 				$("#getHint").html("Answer")
 				$("#getHint").attr("class","btn btn-warning")
 			}
@@ -139,16 +142,17 @@ function controller(maps) {
 	}
 }
 
-//The buttons in the game
-
-
+//The buttons in the game, should make this more automated.
 
 $(document).ready(function() {
 
+	//We define the controller and call it game.
 	game = new controller(content)
 
+	//The initial mode is U.S.
 	game.newGame("us")
 
+	//We make all the buttons do the things they do.
 	$("#getHint").click(function() {
 		game.getHint()
 	})
@@ -157,20 +161,22 @@ $(document).ready(function() {
 		game.lastCity()
 	})
 
-	$(document).keyup(function(e) {
-        if ( e.keyCode == 37 ) // w
-            game.lastCity()
-    })
-
 	$("#next").click(function() {
 		game.nextCity()
 	})
 
+	// The left and right arrow keys will also nevaigate the pictures.
 	$(document).keyup(function(e) {
-        if ( e.keyCode == 39 ) // w
+        if ( e.keyCode == 37 ) // left arrow key
+            game.lastCity()
+    })
+
+    $(document).keyup(function(e) {
+        if ( e.keyCode == 39 ) // right arrow key
             game.nextCity()
     })
 
+    //Enter a guess
 	$("#guess").keyup(function(e) {
 		if(e.which == 13) {		//enter
 			var input = $("#guess").val()
@@ -179,7 +185,7 @@ $(document).ready(function() {
 		}
 	})
 
-	//Cheat Codes
+	//??? what does this js do?
 
 	var map = {68: false, 69: false, 86: false};
 	$(document).keydown(function(e) {
@@ -187,9 +193,7 @@ $(document).ready(function() {
 	        map[e.keyCode] = true;
 	        if (map[68] && map[69] && map[86]) {
 	            game.score++
-				$("#score").html(""+game.score)
-				$(".circle-text").css("width",(25+2*game.score)+"px")
-				$(".circle-text").css("height",(25+2*game.score)+"px")
+				game.updateScore()
 	        }
 	    }
 	}).keyup(function(e) {
@@ -198,6 +202,9 @@ $(document).ready(function() {
 	    }
 	});
 
+
+	//Here we make the menu buttons select the right mode. If you add more modes in the city list thing you have to 
+	// change this as well.
 	$("#nature").click(function() {
 		game.newGame("nature")
 		$("#mode").html("Nature <span class='caret'></span>")

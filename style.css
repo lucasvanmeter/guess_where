@@ -1,7 +1,5 @@
-body {
-    background-color: #b0c4de;
-}
-
+/* Makes the picture fill the whole screen whithout changing its aspect ratio. 
+Also sets the z-index to -1 so it will appear behind everything else. */
 #pic {
     position: absolute;
     left: 0px;
@@ -11,25 +9,26 @@ body {
     min-height: 100%;
 }
 
+/* This is the guessing box */
 #first {
 	padding: 20px;
 	z-index: 2;
 }
 
+/* This is the button sections */
 #second {
 	padding: 10px;
 	z-index: 2;
 }
 
+/* This is where messages appear */
 #third {
 	padding: 10px;
 	z-index: 2;
 }
 
-#hint {
-	display: none;
-}
-
+/* This is an overly fancy way to make the score a circle and so that at any size
+ the text inside will stay centered. */
 .circle-text {
 	float: right;
 	border-radius: 50%;
