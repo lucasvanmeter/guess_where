@@ -1,8 +1,7 @@
 //The controller object will run everything.
 
-function controller(maps) {
-	this.maps = maps
-	this.mode = null
+function controller(modes) {
+	this.modes = modes
 	this.list = null
 	this.score = 0
 	this.cityTracker = 0
@@ -59,8 +58,7 @@ function controller(maps) {
 	//New game will initialize a new setup.
 
 	this.newGame = function(mode) {
-		self.mode = self.maps[mode]
-		self.list = self.mode["list"]
+		self.list = self.modes[mode]
 		self.cityTracker = 0
 		self.currentCity = self.list[0]
 		self.hintTracker = 0
@@ -146,11 +144,28 @@ function controller(maps) {
 
 $(document).ready(function() {
 
+	//set up mode selection
+	for (k in modes) {
+		//<li><a href="#" id="nature">Nature</a></li>
+		li = document.createElement('li')
+		a = document.createElement('a')
+		$(li).append(a)
+		$(a)
+		.attr('id',k)
+		.text(k)
+		.click(function() {
+			game.newGame($(this).attr('id'))
+			$('#mode').html($(this).attr('id') + ' <span class="caret"></span>')
+		})
+		$('#modeSelect').append(li)
+	}
+
 	//We define the controller and call it game.
-	game = new controller(content)
+	game = new controller(modes)
 
 	//The initial mode is U.S.
-	game.newGame("us")
+	for (key in modes) break;
+	game.newGame(key)
 
 	//We make all the buttons do the things they do.
 	$("#getHint").click(function() {
@@ -201,27 +216,4 @@ $(document).ready(function() {
 	        map[e.keyCode] = false;
 	    }
 	});
-
-
-	//Here we make the menu buttons select the right mode. If you add more modes in the city list thing you have to 
-	// change this as well.
-	$("#nature").click(function() {
-		game.newGame("nature")
-		$("#mode").html("Nature <span class='caret'></span>")
-	})
-
-	$("#us").click(function() {
-		game.newGame("us")
-		$("#mode").html("U.S. <span class='caret'></span>")
-	})
-
-	$("#world").click(function() {
-		game.newGame("world")
-		$("#mode").html("World <span class='caret'></span>")
-	})
-
-	$("#parks").click(function() {
-		game.newGame("parks")
-		$("#mode").html("Parks <span class='caret'></span>")
-	})
 })
